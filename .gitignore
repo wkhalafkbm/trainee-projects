@@ -1,1 +1,12 @@
 .DS_Store
+
+# Mentor-only files — not for trainees
+project-01-rag-document-qa.md
+project-02-multi-tone-content-generator.md
+project-03-hr-onboarding-agent.md
+project-04-customer-support-triage-bot.md
+project-05-loan-screening-governance.md
+project-06-knowledge-base-agent-audit.md
+project-07-capstone.md
+project-07-evaluator-guide.md
+projects.md
