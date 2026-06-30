@@ -24,6 +24,10 @@ Complete the following **before starting any of the projects**.
 
 A comprehensive reference covering foundation models, prompt engineering, RAG, agents, evaluation, and production deployment. Use it to go deeper on any topic you encounter across the projects. The full book is available in this folder as `AI Engineering.pdf`.
 
+### IBM Cloud Account
+
+Create a free IBM Cloud account at [cloud.ibm.com](https://cloud.ibm.com). The sign-up flow will ask for a credit card, but **you will not be charged** — you won't be provisioning any resources directly. The environments you need for the projects will be shared with you.
+
 ---
 
 ## Structure
