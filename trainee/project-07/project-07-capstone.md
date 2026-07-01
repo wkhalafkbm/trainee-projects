@@ -13,7 +13,16 @@ The previous six projects gave you a problem, a plan, and told you what to build
 
 A client has come to you with a business problem. Your job is to understand it, decide what to build, design the system, build it, and present it — the same way you would in a real engagement. The client brief is intentionally vague in places. That is not an oversight. Part of what you are being assessed on is how you handle ambiguity: the questions you ask, the assumptions you make explicit, and the decisions you justify.
 
+Every scenario is drawn from one of four sectors that matter most to the Kuwait market:
+
+- **Government** — ministries, municipalities, and public-sector bodies
+- **Banking** — regulated retail and Islamic finance institutions
+- **Cross-sector (private business)** — the large private conglomerates and retail groups that touch everyday life in Kuwait (e.g. Al Shaya, Alghanim Industries, Xcite)
+- **Oil** — national and operational entities in the oil and energy sector
+
 You will choose one scenario from the list below. No two trainees in the same cohort may choose the same one.
+
+You are free to use AI tools to help design and build your solution — that reflects how this work actually gets done. What you will be scrutinised on is not whether you typed every line yourself, but whether **you** understood the sector, made deliberate design choices, can justify every decision you made, and can present and defend the result convincingly. A working demo that you cannot explain, or that does not reflect a real understanding of the sector's constraints, will score worse than a smaller solution you can defend under hard questioning. Treat the presentation as a pitch: your job is to convince the evaluators that this is a use case their sector would actually want, not just that the AI works.
 
 ---
 
@@ -46,7 +55,13 @@ Show that your system works and that you tried to break it. At minimum: a set of
 
 ### 5. Presentation (15 minutes)
 
-Present your solution to your mentor as if you are presenting to the client. Cover: what you built, why you built it this way, what works, what doesn't, and what you would do next. You will be asked questions. The ability to defend your decisions under questioning is part of the assessment.
+Present your solution to your mentor as if you are presenting to the client. Structure the presentation as a pitch, not a walkthrough:
+
+1. **Frame the business problem first.** Before showing any system, state the problem you identified, why it matters to this sector, and what it costs the client today (time, money, risk, reputation) if it goes unsolved. Do not open with the tool — open with the pain.
+2. **Then demo the solution against that problem.** Walk through your working system so the evaluators can see, concretely, how each part of the demo answers the problem you just framed — not a generic feature tour.
+3. **Close with what works, what doesn't, and what you would do next.**
+
+You will be asked questions. The ability to defend your decisions under questioning is part of the assessment.
 
 ---
 
@@ -54,7 +69,7 @@ Present your solution to your mentor as if you are presenting to the client. Cov
 
 ---
 
-### Scenario A — Ministry of Commerce: Business Licensing Assistant
+### Scenario A — Ministry of Commerce: Business Licensing Assistant *(Sector: Government)*
 
 **The brief:**
 
@@ -64,7 +79,7 @@ Present your solution to your mentor as if you are presenting to the client. Cov
 
 ---
 
-### Scenario B — Burgan-style Retail Bank: Islamic Finance Product Advisor
+### Scenario B — Burgan-style Retail Bank: Islamic Finance Product Advisor *(Sector: Banking)*
 
 **The brief:**
 
@@ -74,7 +89,7 @@ Present your solution to your mentor as if you are presenting to the client. Cov
 
 ---
 
-### Scenario C — Kuwait Oil Company Field Operations
+### Scenario C — Kuwait Oil Company Field Operations *(Sector: Oil)*
 
 **The brief:**
 
@@ -84,27 +99,27 @@ Present your solution to your mentor as if you are presenting to the client. Cov
 
 ---
 
-### Scenario D — Private Hospital: Patient Intake and Triage
+### Scenario D — Alghanim Industries-style Conglomerate: Multi-Brand Customer Care Assistant *(Sector: Cross-sector / Private Business)*
 
 **The brief:**
 
-> "Patients arrive at our reception or call our helpline describing symptoms, and our front-desk staff have to decide which department to route them to. We want an AI assistant to handle this triage step — take a description of symptoms from the patient, ask follow-up questions if needed, and route them to the right department with a summary for the receiving nurse. We are very aware that this is a medical context and that a wrong routing could delay critical care. We are not asking the AI to diagnose anyone. We want it to route, not diagnose. We need to be able to show our medical director exactly what the AI asked, what the patient said, and what routing decision was made for every single interaction."
+> "We operate dozens of brands across automotive, electronics, and consumer goods — think Toyota, Yiaco, and our retail chains, all under one group. Customers call or message about warranty claims, service bookings, and product questions, but which brand and which policy applies is different every time. Our contact centre agents currently have to look up the right brand's policy manually before they can even start helping. We want an AI assistant that can identify which brand and product a customer is asking about, apply the right policy, and either resolve simple requests directly or hand off to the right brand's team with full context. We cannot have the assistant quote a warranty term from the wrong brand, and we cannot have it make commitments — like promising a refund or a replacement — that only a human with approval authority can make."
 
-**What to think about:** What is the difference between routing and diagnosing, and where is the line technically? What happens when a patient describes a potentially life-threatening symptom? How do you design an AI system where the cost of a false negative (routing a critical patient to the wrong department) is extremely high? What does the audit trail need to contain to satisfy a medical director?
+**What to think about:** How do you keep dozens of brand policies from bleeding into each other? What does "cannot make commitments" mean for how the system is allowed to phrase its responses? How do you decide what a bot can resolve directly versus what must go to a human, and how do you hand off with enough context that the customer doesn't repeat themselves? How would you convince a group like this — used to running many separate brand operations — that a shared AI layer is worth centralising?
 
 ---
 
-### Scenario E — Law Firm: Contract Review and Compliance Flagging
+### Scenario E — Xcite-style Electronics Retailer: Pre-Sale and Post-Sale Product Assistant *(Sector: Cross-sector / Private Business)*
 
 **The brief:**
 
-> "We review a large number of commercial contracts and our junior associates spend significant time on first-pass review — identifying non-standard clauses, missing provisions, and potential compliance issues under Kuwait Commercial Law. We want a tool that can do this first pass and flag items for a senior associate to review. It should not give legal opinions — it should flag and summarise, not conclude. Confidentiality is critical: our clients' contracts must never be processed in a way that could expose them to a competitor or to any third party. We also need to know which version of a clause the AI was trained to recognise — the law changes and we need to be able to update it."
+> "Customers message us on WhatsApp and our website asking whether a product is in stock, how it compares to a competitor's model, whether it's compatible with something they already own, and — after they've bought it — how to get it repaired or exchanged. Our staff are good at this in person but online we lose a lot of customers to slow responses. We want an assistant that can answer pre-sale product questions accurately from our catalogue and specs, and handle post-sale queries like return eligibility and repair status. Our catalogue changes constantly with new stock and promotions, so whatever you build has to reflect what's actually available today, not what we told it last month. We're also worried about the assistant confidently inventing a spec or a promotion that doesn't exist — that's the kind of mistake that ends up as a public complaint."
 
-**What to think about:** How do you build a document review tool that flags without concluding? What does "confidentiality" mean technically for data sent to a model API? How do you version the knowledge the AI uses so it can be updated when the law changes? How do you handle a contract written partly in Arabic and partly in English?
+**What to think about:** How do you keep a fast-changing catalogue and promotions from going stale in the AI's knowledge? What guardrails stop the system from inventing a spec, price, or promotion it isn't sure about? Where is the line between "pre-sale product advice" and something that starts to look like a purchase commitment the company has to honour? How would you pitch the ROI of this to a retail group that measures everything by conversion and complaint volume?
 
 ---
 
-### Scenario F — Kuwait Municipality: Public Services Complaint Handler
+### Scenario F — Kuwait Municipality: Public Services Complaint Handler *(Sector: Government)*
 
 **The brief:**
 
@@ -122,13 +137,17 @@ Your submission will be assessed on the following.
 
 Did you correctly identify what the client actually needs? Did you surface the constraints and risks that are not explicitly stated in the brief? Did you make sensible assumptions where the brief was vague, and did you state those assumptions clearly?
 
+### Sector Relevance and Persuasiveness
+
+Would a real stakeholder in this sector — a government official, a bank compliance officer, a conglomerate operations lead, an oil company safety engineer — recognise this as a genuine, relevant use case for their world, not a generic chatbot with the sector's name attached? Did you understand what makes this sector distinct (regulation, risk tolerance, brand structure, public accountability)? Could you convince a sceptical evaluator playing that stakeholder that this is worth building?
+
 ### Design Decisions
 
 Are your architectural choices justified? Did you select the right components from the watsonx stack for the task? Where you had options (e.g. agent vs. pipeline, RAG vs. fine-tuning), can you explain why you chose what you chose?
 
 ### Safety and Governance
 
-Does your solution include at least one safety mechanism appropriate to the domain? Is there an audit or governance layer? Did you identify the domain-specific risks (the risks in a medical triage system are different from those in a complaint handler) and address them specifically?
+Does your solution include at least one safety mechanism appropriate to the domain? Is there an audit or governance layer? Did you identify the domain-specific risks (the risks in a safety-critical oil operations assistant are different from those in a retail product assistant) and address them specifically?
 
 ### Scope Management
 
