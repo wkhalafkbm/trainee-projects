@@ -1,15 +1,15 @@
-# Project 7: Capstone — Client Brief
+# Project 5: Capstone — Client Brief
 
 **Stack:** Your choice  
-**Duration:** 2 weeks  
+**Duration:** ~3.5 weeks (18 working days)  
 **Difficulty:** Capstone  
-**Mock documents:** [`project-07-mock-docs/`](project-07-mock-docs/) — one subfolder per scenario
+**Mock documents:** [`mock-docs/`](mock-docs/) — one subfolder per scenario
 
 ---
 
 ## What This Project Is
 
-The previous six projects gave you a problem, a plan, and told you what to build. This one does not.
+The previous four projects gave you a problem, a plan, and told you what to build. This one does not.
 
 A client has come to you with a business problem. Your job is to understand it, decide what to build, design the system, build it, and present it — the same way you would in a real engagement. The client brief is intentionally vague in places. That is not an oversight. Part of what you are being assessed on is how you handle ambiguity: the questions you ask, the assumptions you make explicit, and the decisions you justify.
 
@@ -125,7 +125,7 @@ You will be asked questions. The ability to defend your decisions under question
 
 > "We receive thousands of complaints and service requests from the public every week — potholes, broken streetlights, waste collection issues, noise complaints. Right now everything comes in through a single email inbox and staff manually categorise and assign each one. We want to automate the triage: classify the complaint, assign it to the right department, generate an acknowledgement to the complainant, and flag anything that looks urgent. The tricky part is that our public sends messages in very mixed Arabic and English, sometimes just a few words, and sometimes a very detailed paragraph. We also get spam and off-topic messages that we need to filter out before they reach our staff."
 
-**What to think about:** How do you handle very short or ambiguous inputs ("the road is broken near my house")? What does urgency mean for a public services context — how is it different from the support triage in Project 4? How do you handle Arabic, English, and mixed-language inputs? What is the right way to generate an acknowledgement that sounds like it came from a government body?
+**What to think about:** How do you handle very short or ambiguous inputs ("the road is broken near my house")? What does urgency mean for a public services context — how is it different from the support triage pipeline in Project 2? How do you handle Arabic, English, and mixed-language inputs? What is the right way to generate an acknowledgement that sounds like it came from a government body?
 
 ---
 
@@ -151,7 +151,7 @@ Does your solution include at least one safety mechanism appropriate to the doma
 
 ### Scope Management
 
-Did you define a realistic scope for two weeks? Did you identify what you left out and why? A well-scoped partial solution is better than an overambitious incomplete one.
+Did you define a realistic scope for ~3.5 weeks? Did you identify what you left out and why? A well-scoped partial solution is better than an overambitious incomplete one.
 
 ### Working Implementation
 
@@ -165,19 +165,19 @@ Can you explain your decisions under questioning? Can you articulate what you wo
 
 ## A Note on Using Prior Work
 
-You are expected to draw on everything from Projects 1–6. Reusing code, patterns, and mock documents from earlier projects is not only allowed — it is encouraged. A real engagement builds on what you already know. What is not acceptable is treating a prior project as a drop-in solution without thinking about whether it fits the new context. The capstone is a new problem with new constraints. Prior work is a starting point, not an answer.
+You are expected to draw on everything from Projects 1–4. Reusing code, patterns, and mock documents from earlier projects is not only allowed — it is encouraged. A real engagement builds on what you already know. What is not acceptable is treating a prior project as a drop-in solution without thinking about whether it fits the new context. The capstone is a new problem with new constraints. Prior work is a starting point, not an answer.
 
 ---
 
 ## Timeline Suggestion
 
-Two weeks is not much time. Here is a rough allocation to consider — you can deviate from it, but if you do, explain why in your discovery document.
+Eighteen working days is not much time for an open-ended engagement. Here is a rough allocation to consider — you can deviate from it, but if you do, explain why in your discovery document.
 
-| Days | Focus                                                                                          |
-| ---- | ---------------------------------------------------------------------------------------------- |
-| 1–2  | Discovery: read the brief, define scope, write the discovery document, sketch the architecture |
-| 3–7  | Build: implement the core capability and at least one safety/governance mechanism              |
-| 8–9  | Test and document: build your test cases, write up what works and what doesn't                 |
-| 10   | Presentation preparation                                                                       |
+| Days  | Focus                                                                                          |
+| ----- | ---------------------------------------------------------------------------------------------- |
+| 1–3   | Discovery: read the brief, define scope, write the discovery document, sketch the architecture |
+| 4–13  | Build: implement the core capability and at least one safety/governance mechanism              |
+| 14–16 | Test and document: build your test cases, write up what works and what doesn't                 |
+| 17–18 | Presentation preparation                                                                       |
 
 The biggest mistake trainees make on open-ended projects is spending too long in the build phase and not leaving enough time to reflect, document, and prepare to present. A system you cannot explain is not a finished system.

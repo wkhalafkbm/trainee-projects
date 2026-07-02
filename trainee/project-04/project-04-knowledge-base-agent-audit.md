@@ -1,7 +1,7 @@
-# Project 6: Internal Knowledge Base Agent with Audit Trail
+# Project 4: Internal Knowledge Base Agent with Audit Trail
 
 **Stack:** watsonx.ai + watsonx.orchestrate + watsonx.governance  
-**Duration:** 1 week  
+**Duration:** 2 weeks (platform/lab ramp-up and build, split as needed)  
 **Difficulty:** Tier 3 — Advanced
 
 ---
@@ -28,41 +28,41 @@ A working internal knowledge base agent with:
 6. **watsonx.governance monitoring** — the deployed model is registered and monitored; a usage report is generated at the end of the week
 7. **Access control stub** — queries are tagged with a user role; certain documents are restricted to certain roles and the agent must respect these boundaries
 
-The knowledge base content can be the mock HR documents from Project 3, supplemented with a set of internal IT and security procedure documents provided in this brief.
+The knowledge base content can be the mock HR documents from Project 2, supplemented with a set of internal IT and security procedure documents provided in this brief.
 
 ---
 
-## Week Plan
+## Milestones
 
-### Day 1 — Understand the threat model
+### Milestone 1 — Understand the threat model
 - Map out the four main security and compliance risks for an internal AI assistant: PII leakage, prompt injection, unauthorised document access, and unaudited decisions
 - For each risk, write down: what could go wrong, who is harmed, and what the technical mitigation is
 - Read about prompt injection: what it is, how it works, and why it is harder to defend against than SQL injection or XSS
 - Familiarise yourself with PII categories relevant to Kuwait: Civil ID numbers, passport numbers, IBAN numbers, Kuwait phone numbers (+965 format), and full Arabic and English names
 - Deliverable: a written threat model (one page) covering all four risks with a proposed mitigation for each
 
-### Day 2 — Build the core knowledge base agent
-- Set up the document store using the provided mock documents (see below) and any documents carried over from Project 3
+### Milestone 2 — Build the core knowledge base agent
+- Set up the document store using the provided mock documents (see below) and any documents carried over from Project 2
 - Build the RAG pipeline: embed documents, retrieve relevant chunks, generate a grounded answer with source citations
 - Implement role-based access: assign each document a `clearance_level` (General / HR-Only / Management-Only); the retrieval step must filter results based on the querying user's role
 - Test the happy path: an employee asks a policy question and receives a correct, cited answer
 - Deliverable: working RAG pipeline with role-based document filtering
 
-### Day 3 — Build the PII detection and input sanitization layers
+### Milestone 3 — Build the PII detection and input sanitization layers
 - PII detection: before a query is sent to the model, scan it for PII patterns (see the PII Detection Guide below). If PII is found, redact it in the query sent to the model and flag the interaction in the audit log
 - Input sanitization: screen queries for prompt injection patterns (see the Prompt Injection Guide below). If an injection attempt is detected, reject the query with a safe error message and log the attempt
 - Both layers must run *before* the query reaches the model — not after
 - Test both layers against the sample malicious inputs provided in this document
 - Deliverable: a working pre-processing pipeline with PII redaction and injection detection, tested against sample inputs
 
-### Day 4 — Build the audit trail
+### Milestone 4 — Build the audit trail
 - Design the audit log schema: every record must contain timestamp, user ID, user role, raw query, sanitized query, PII flag (yes/no, what was detected), injection flag (yes/no), documents retrieved (IDs and similarity scores), model response, and response latency
 - Write every interaction to a JSON Lines log file (one JSON object per line, append-only)
 - Add a summary function that reads the log and produces: total queries, flagged PII count, flagged injection count, most retrieved documents, average latency
 - Test that the audit log is complete: run 10 queries (including flagged ones) and verify every field is populated correctly
 - Deliverable: a working audit trail with a summary report generated from the log
 
-### Day 5 — watsonx.governance integration and final review
+### Milestone 5 — watsonx.governance integration and final review
 - Register the model in watsonx.governance and populate its factsheet: intended use, document scope, access control design, known limitations, PII handling approach
 - Configure monitoring: track query volume, flag rates (PII and injection), and response latency over time
 - Run a final end-to-end test covering all user roles and all document clearance levels
@@ -178,11 +178,11 @@ Note that the last example is important: asking "what can you help me with?" is 
 
 ## Mock Documents for the Knowledge Base
 
-Use the HR documents from Project 3 (`project-03-mock-docs/`) as your General clearance-level documents. Supplement them with the following documents at higher clearance levels.
+Use the HR documents from Project 2 (`../project-02/mock-docs/`) as your General clearance-level documents. Supplement them with the following documents at higher clearance levels.
 
 ### IT Security Procedures (General clearance)
 
-Create a file `project-06-mock-docs/it-security-procedures.md` containing:
+Create a file `mock-docs/it-security-procedures.md` containing:
 - Password policy (minimum length, complexity, rotation frequency)
 - VPN usage requirements for remote access
 - Acceptable use of personal devices
@@ -191,7 +191,7 @@ Create a file `project-06-mock-docs/it-security-procedures.md` containing:
 
 ### Performance Review Process (HR-Only clearance)
 
-Create a file `project-06-mock-docs/performance-review-process.md` containing:
+Create a file `mock-docs/performance-review-process.md` containing:
 - The annual performance review cycle and timeline
 - How ratings are calibrated across teams
 - The link between performance ratings and salary reviews
@@ -200,7 +200,7 @@ Create a file `project-06-mock-docs/performance-review-process.md` containing:
 
 ### Salary Banding and Compensation Structure (Management-Only clearance)
 
-Create a file `project-06-mock-docs/salary-bands.md` containing:
+Create a file `mock-docs/salary-bands.md` containing:
 - Salary bands by job grade (use fictional ranges in KWD)
 - How promotions affect compensation
 - The budget allocation process for merit increases

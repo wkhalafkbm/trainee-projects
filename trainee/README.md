@@ -1,6 +1,6 @@
 # Trainee Projects
 
-A structured series of seven projects for learning AI application development on the IBM watsonx platform. Projects progress from foundational concepts to production-grade systems, culminating in an open-ended capstone built around a real client scenario.
+A structured series of six projects — one engineering-fundamentals check-in plus four AI application projects plus a capstone — for learning AI application development on the IBM watsonx platform. The whole series runs roughly three months. Projects progress from foundational concepts to production-grade systems, culminating in an open-ended capstone built around a real client scenario.
 
 ---
 
@@ -34,42 +34,39 @@ Create a free IBM Cloud account at [cloud.ibm.com](https://cloud.ibm.com). The s
 
 Each project lives in its own folder containing the project brief and any mock documents needed to complete it. Projects build on each other — concepts and even code from earlier projects are expected to carry forward.
 
+Each brief lists a set of **milestones** rather than a fixed day-by-day schedule. Work through them in order, at whatever pace gets each one genuinely done — the durations below are targets for the whole project, not a daily itinerary.
+
 ---
 
 ## The Projects
 
-### Project 1 — Document Q&A with RAG
-**Tier 1 · 1 week · watsonx.ai**
+### Project 0 — Development Environment & Engineering Basics
+**Pre-work · 1 day · No AI · Optional**
 
-Build an assistant that answers questions grounded in a set of documents. Introduces the two most fundamental concepts in AI application development: prompt engineering and retrieval-augmented generation (RAG). The trainee learns how to chunk documents, generate embeddings, retrieve relevant context, and construct prompts that prevent hallucination.
+An optional, ungraded check-in before any AI work begins — skip it if you're already comfortable with the basics. Set up a repo properly, call an external API, handle secrets via environment variables, write a few tests, and use git like it matters. None of this is AI — it exists to confirm the engineering scaffolding is solid before Project 1 introduces AI-specific concepts on top of it.
 
-### Project 2 — Multi-Tone Content Generator
-**Tier 1 · 1 week · watsonx.ai**
+### Project 1 — Prompting & RAG Foundations
+**Tier 1 · 6 days · watsonx.ai**
 
-Build a tool that takes a single input and produces three versions of it in different tones — a formal report summary, a casual social post, and an executive briefing. A focused deep-dive into prompt engineering: system prompts, few-shot examples, structured output, and model selection tradeoffs.
+Build an assistant that answers questions grounded in a set of documents, and can re-express any answer in three different tones — a formal report summary, a casual message, and an executive briefing. Combines the two most fundamental skills in AI application development: retrieval-augmented generation (RAG) for grounding a model in real data, and prompt engineering (system prompts, few-shot examples, structured output, model selection) for controlling how it communicates.
 
-### Project 3 — HR Onboarding Agent
-**Tier 2 · 1 week · watsonx.ai + watsonx.orchestrate**
+### Project 2 — Agentic Orchestration: Agent + Pipeline
+**Tier 2 · 2 weeks · watsonx.ai + watsonx.orchestrate**
 
-Build a conversational agent that guides new hires through onboarding. The agent answers policy questions, submits IT access requests, and books orientation sessions — deciding which tool to call and when to ask the user for confirmation. Introduces agentic systems: the reasoning loop, tool definitions, stateful conversation, and the boundary between acting autonomously and escalating to a human.
+Build two orchestrated systems: an HR onboarding **agent** that holds a multi-turn conversation, answers policy questions, submits IT requests, and books orientation sessions — deciding when to act, ask, or escalate — and a customer support triage **pipeline** that classifies, routes, and drafts a response for incoming tickets in a fixed sequence of steps. Building both back to back teaches the most important architectural judgement call in this space: when a problem needs an open-ended reasoning loop versus a fixed sequence of steps. The two weeks cover both getting hands-on with watsonx.orchestrate and building both systems — split however suits you.
 
-### Project 4 — Customer Support Triage Bot
-**Tier 2 · 1 week · watsonx.ai + watsonx.orchestrate**
+### Project 3 — Loan Screening Tool with Governance
+**Tier 3 · 2 weeks · watsonx.ai + watsonx.governance**
 
-Build a pipeline that receives a support ticket and classifies it, routes it to the correct team, and drafts a personalised first response. Introduces multi-step pipeline design, the difference between classification and generation tasks, confidence thresholds, and human-in-the-loop as a deliberate design decision rather than a fallback.
+Build an AI-assisted loan application screener that recommends approve, refer, or decline — then wrap it in a full governance layer. Introduces responsible AI in a regulated domain: explainability, bias detection across protected attributes, decision logging for audit, and producing a model factsheet via watsonx.governance. The first project where accuracy alone is not enough. The two weeks cover both getting hands-on with watsonx.governance and building the screening tool — split between the two however suits you.
 
-### Project 5 — Loan Screening Tool with Governance
-**Tier 3 · 1 week · watsonx.ai + watsonx.governance**
+### Project 4 — Internal Knowledge Base Agent with Audit Trail
+**Tier 3 · 2 weeks · watsonx.ai + watsonx.orchestrate + watsonx.governance**
 
-Build an AI-assisted loan application screener that recommends approve, refer, or decline — then wrap it in a full governance layer. Introduces responsible AI in a regulated domain: explainability, bias detection across protected attributes, decision logging for audit, and producing a model factsheet via watsonx.governance. The first project where accuracy alone is not enough.
+Build an enterprise-grade internal assistant over a company knowledge base, with role-based document access, PII detection, prompt injection screening, and a tamper-evident audit log of every interaction. Focuses on production readiness: the security and compliance engineering that surrounds the model, not just the model itself. The two weeks cover both platform ramp-up and the build — split between the two however suits you.
 
-### Project 6 — Internal Knowledge Base Agent with Audit Trail
-**Tier 3 · 1 week · watsonx.ai + watsonx.orchestrate + watsonx.governance**
-
-Build an enterprise-grade internal assistant over a company knowledge base, with role-based document access, PII detection, prompt injection screening, and a tamper-evident audit log of every interaction. Focuses on production readiness: the security and compliance engineering that surrounds the model, not just the model itself.
-
-### Project 7 — Capstone: Client Brief
-**Capstone · 2 weeks · Stack of your choice**
+### Project 5 — Capstone: Client Brief
+**Capstone · ~3.5 weeks · Stack of your choice**
 
 An open-ended project built around a real client scenario chosen from six options (government licensing, Islamic finance, oil & gas field operations, hospital triage, legal contract review, or municipal complaint handling). No prescribed deliverable structure — the trainee defines scope, designs the architecture, builds a working system, and presents it as they would to a real client. Assessed on problem understanding, design decisions, safety and governance, and the ability to defend choices under questioning.
 
@@ -78,10 +75,10 @@ An open-ended project built around a real client scenario chosen from six option
 ## Progression
 
 ```
-Tier 1 (Foundation)       Tier 2 (Intermediate)      Tier 3 (Advanced)         Capstone
-─────────────────────     ──────────────────────     ─────────────────────     ─────────
-Project 1 · RAG           Project 3 · Agent          Project 5 · Governance    Project 7
-Project 2 · Prompting     Project 4 · Pipeline       Project 6 · Security
+Pre-work    Tier 1 (Foundation)   Tier 2 (Intermediate)         Tier 3 (Advanced)                Capstone
+────────    ───────────────────   ───────────────────────      ─────────────────────────────    ─────────
+Project 0   Project 1 · RAG +     Project 2 · Agent + Pipeline  Project 3 · Governance            Project 5
+            Prompting                                          Project 4 · Security
 ```
 
-The tiers reflect increasing complexity in what surrounds the model: from a single prompt, to an orchestrated agent, to a governed and secured production system.
+The tiers reflect increasing complexity in what surrounds the model: from engineering basics, to a single prompt, to an orchestrated agent, to a governed and secured production system.

@@ -1,7 +1,7 @@
-# Project 5: Loan/Credit Application Screening Tool (with Governance)
+# Project 3: Loan/Credit Application Screening Tool (with Governance)
 
 **Stack:** watsonx.ai + watsonx.governance  
-**Duration:** 1 week  
+**Duration:** 2 weeks (platform/lab ramp-up and build, split as needed)  
 **Difficulty:** Tier 3 — Advanced
 
 ---
@@ -30,28 +30,28 @@ A working loan screening pipeline with:
 
 ---
 
-## Week Plan
+## Milestones
 
-### Day 1 — Understand responsible AI in financial services
+### Milestone 1 — Understand responsible AI in financial services
 - Read about why AI in lending is a regulated domain: what adverse action notices are, what the Central Bank of Kuwait's (CBK) consumer credit regulations require, and why explainability is not optional
 - Read about the types of bias that can appear in AI systems: historical bias (the training data reflects past discrimination), representation bias (some groups are underrepresented), and measurement bias (features used as proxies for protected attributes)
 - Familiarise yourself with watsonx.governance: what it tracks, what a factsheet is, and what a model card should contain
 - Deliverable: a written summary (1 page) of the three types of bias and one example of each from the financial services domain
 
-### Day 2 — Build the screening model
+### Milestone 2 — Build the screening model
 - Design the prompt: the model receives a structured application profile and must return a JSON response containing the recommendation, confidence score, and justification
 - Define the exact fields in the output schema before writing the prompt
 - Test the prompt against the sample applications in this document
 - Ensure the model never returns a Decline without a justification that references specific application data — not a generic reason
 - Deliverable: a working screening prompt with structured JSON output, tested against at least 10 sample applications
 
-### Day 3 — Build the explainability layer and decision log
+### Milestone 3 — Build the explainability layer and decision log
 - Explainability: for each decision, produce a second output that lists the top factors that influenced the outcome in plain language a non-expert can read (e.g. "Existing monthly debt of KWD 300 represents 37.5% of your net salary, approaching the CBK's 40% Debt Burden Ratio limit for expat applicants")
 - Decision log: write every application + recommendation + explanation to a structured log file (JSON Lines format is suitable)
 - Test the explanation quality: would a loan officer be able to use this explanation to have a meaningful conversation with the applicant about why their application was referred?
 - Deliverable: working explainability output for all three decision types, and a populated decision log after running the full sample set
 
-### Day 4 — Bias detection and fairness analysis
+### Milestone 4 — Bias detection and fairness analysis
 - Run the screening model against the full sample dataset (at least 30 applications)
 - Segment outcomes by gender, age group, and nationality — calculate approval rates, referral rates, and decline rates for each segment
 - Identify whether any group has a meaningfully different outcome distribution compared to others
@@ -59,7 +59,7 @@ A working loan screening pipeline with:
 - Attempt at least one mitigation and re-run to see whether it improves the disparity
 - Deliverable: a bias analysis report (can be a markdown file or spreadsheet) containing outcome distributions by segment, a finding, and a documented mitigation attempt
 
-### Day 5 — watsonx.governance integration and final report
+### Milestone 5 — watsonx.governance integration and final report
 - Register the model in watsonx.governance
 - Populate the model factsheet: intended use, training data description (or in this case, prompt design description), known limitations, fairness findings, and recommended human oversight steps
 - Configure basic monitoring: log inputs and outputs so drift could be detected over time
