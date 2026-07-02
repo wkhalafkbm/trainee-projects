@@ -161,3 +161,18 @@ A prompt that works well on 5 test cases can fail on the 6th. Common reasons: th
 - LangChain or LlamaIndex docs for RAG pipeline patterns (framework-agnostic concepts apply)
 - "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks" (Lewis et al., 2020) — the original RAG paper, worth skimming for context
 - "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models" (Wei et al., 2022) — useful background on how prompt structure shapes model behaviour
+
+## Practitioner Resources
+
+- [IBM watsonx.ai Prompt Lab docs](https://www.ibm.com/docs/en/watsonx/saas?topic=prompts-prompt-lab) — official guide to structuring prompts with system/user roles, variables, and decoding params in watsonx.ai.
+- [RAG on watsonx.ai](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-rag.html?context=wx) — official docs on embeddings, vector index retrievers, and grounding responses in watsonx.
+- [Optimizing your RAG knowledge base](https://www.ibm.com/docs/en/watsonx/saas?topic=generation-optimizing-your-rag-knowledge-base) — IBM's guidance on preparing and splitting source documents for retrieval quality.
+- [Choosing a foundation model](https://www.ibm.com/docs/en/watsonx/saas?topic=models-choosing-model) — IBM's framework for model selection tradeoffs (task fit, size, tuning options).
+- [IBM: What is few-shot prompting?](https://www.ibm.com/think/topics/few-shot-prompting) — concise explainer with examples of few-shot prompting patterns.
+- [Pinecone: Chunking Strategies](https://www.pinecone.io/learn/chunking-strategies/) — deep dive on fixed-size, content-aware, and semantic chunking approaches for RAG.
+- [Pinecone: Vector Similarity Explained](https://www.pinecone.io/learn/vector-similarity/) — clear breakdown of cosine, dot-product, and Euclidean similarity metrics.
+- [LangChain: Text Splitters](https://docs.langchain.com/oss/python/integrations/splitters) — practical implementation reference for chunking documents before embedding.
+- [Anthropic: Prompt Engineering Overview](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) — foundational guide covering system vs user prompts and few-shot techniques.
+- [Anthropic: Reducing Hallucinations / Guardrails](https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/keep-claude-in-character) — techniques for grounding, consistency, and robustness under adversarial input.
+- [OpenAI: Structured Outputs Guide](https://developers.openai.com/api/docs/guides/structured-outputs) — how to enforce JSON-schema-conformant output from LLMs.
+- [Prompting Guide: Few-Shot Prompting](https://www.promptingguide.ai/techniques/fewshot) — community reference with worked examples and pitfalls of few-shot prompting.

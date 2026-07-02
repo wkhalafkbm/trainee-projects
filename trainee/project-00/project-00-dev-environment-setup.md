@@ -109,3 +109,16 @@ Commits are not a formality — a clear commit history is how you (and anyone re
 - Your chosen public API's documentation
 - Your test runner's getting-started guide (e.g. `pytest` for Python)
 - A short git basics guide, if you're not already comfortable with commits, `.gitignore`, and viewing history
+
+## Practitioner Resources
+
+- [The Twelve-Factor App: Config](https://12factor.net/config) — canonical explanation of why config/secrets belong in environment variables, never in code.
+- [GitHub Docs: Ignoring files](https://docs.github.com/en/get-started/git-basics/ignoring-files) — official guide to `.gitignore` syntax, global ignore files, and untracking already-committed files.
+- [github/gitignore](https://github.com/github/gitignore) — GitHub's official collection of ready-made `.gitignore` templates per language/tool.
+- [Python Virtual Environments: A Primer — Real Python](https://realpython.com/python-virtual-environments-a-primer/) — clear, practical walkthrough of `venv`/pip for isolating project dependencies.
+- [pytest: Get Started](https://docs.pytest.org/en/stable/getting-started.html) — official docs for installing pytest and writing your first test.
+- [Python's Requests Library (Guide) — Real Python](https://realpython.com/python-requests/) — thorough tutorial on calling REST APIs, handling responses, and auth/sessions.
+- [Requests: Advanced Usage — Timeouts](https://requests.readthedocs.io/en/latest/user/advanced/#timeouts) — official docs explaining why every API call needs a timeout to avoid hanging indefinitely.
+- [theskumar/python-dotenv (GitHub)](https://github.com/theskumar/python-dotenv) — the standard library for loading secrets from `.env` files per 12-factor principles, with usage examples.
+- [Python Exceptions: An Introduction — Real Python](https://realpython.com/python-exceptions/) — solid grounding in try/except/else/finally and catching specific exceptions for graceful failure handling.
+- [Errors and Exceptions — Python Docs](https://docs.python.org/3/tutorial/errors.html) — official Python tutorial chapter covering exception syntax, custom exceptions, and cleanup actions.

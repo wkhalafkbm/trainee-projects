@@ -406,3 +406,18 @@ To test question 2, find two applications with near-identical financial profiles
 - IBM AI Fairness 360 (AIF360) — open-source toolkit for bias detection and mitigation, useful for understanding the underlying metrics
 - "Fairness and Machine Learning" (Barocas, Hardt, Narayanan) — free online textbook, Chapters 1–3 are relevant to this project
 - "Model Cards for Model Reporting" (Mitchell et al., 2019) — the paper that established model cards as a governance practice
+
+## Practitioner Resources
+
+- [Configuring fairness evaluations — IBM watsonx.governance docs](https://www.ibm.com/docs/en/watsonx/saas?topic=models-configuring-fairness-evaluations) — official IBM docs on setting fairness thresholds, protected attributes, and bias-violation alerts for deployed models.
+- [Governing assets with watsonx.governance — IBM Documentation](https://www.ibm.com/docs/en/watsonx/saas?topic=governing-ai) — overview of watsonx.governance's model inventory, monitors, and lifecycle governance for regulated AI use cases like lending.
+- [Configuring explainability — IBM watsonx docs](https://dataplatform.cloud.ibm.com/docs/content/wsj/model/wos-explainability-config.html?context=wx) — explains how Watson OpenScale/watsonx.governance generates local and global explanations using LIME and SHAP.
+- [AI Fairness 360 (AIF360) — GitHub repository](https://github.com/Trusted-AI/AIF360) — IBM-originated, Linux Foundation-hosted open-source toolkit with 70+ fairness metrics and 10+ bias-mitigation algorithms.
+- [AI Fairness 360: An Extensible Toolkit for Detecting and Mitigating Algorithmic Bias — IBM Research](https://research.ibm.com/publications/ai-fairness-360-an-extensible-toolkit-for-detecting-and-mitigating-algorithmic-bias) — the original IBM research publication behind AIF360, explaining its metric taxonomy and design rationale.
+- [Ensure Loan Fairness with AIF360 — IBM Code Pattern (GitHub)](https://github.com/IBM/ensure-loan-fairness-aif360) — hands-on demo applying AIF360 bias metrics and mitigation directly to a loan-approval dataset.
+- [Model Cards for Model Reporting (arXiv:1810.03993)](https://arxiv.org/abs/1810.03993) — the foundational Mitchell et al. paper defining the model card/factsheet format for transparent model documentation.
+- [AI FactSheets 360 — IBM Research](https://aifs360.res.ibm.com/introduction) — IBM's framework and open catalog for "nutrition label"-style model facts sheets supporting AI governance.
+- [Fairness — Google Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course/fairness) — free module covering bias types, demographic parity, and equality of opportunity (equalized odds), and mitigation strategies.
+- [Innovation Spotlight: Providing adverse action notices when using AI/ML models — CFPB](https://www.consumerfinance.gov/about-us/blog/innovation-spotlight-providing-adverse-action-notices-when-using-ai-ml-models/) — CFPB guidance on how ECOA/Regulation B adverse-action requirements apply to complex/AI credit models.
+- [Adverse Action Notice Compliance Considerations for Creditors That Use AI — American Bar Association](https://www.americanbar.org/groups/business_law/resources/business-law-today/2023-november/adverse-action-notice-compliance-considerations-for-creditors-that-use-ai/) — practitioner-oriented legal analysis of specificity and explainability duties for AI-driven credit denials.
+- [Interpretability vs. Explainability in AI and Machine Learning — TechTarget](https://www.techtarget.com/searchenterpriseai/feature/Interpretability-vs-explainability-in-AI-and-machine-learning) — clear, practitioner-level breakdown of the distinction between interpretable and explainable models, relevant to regulated-model design choices.

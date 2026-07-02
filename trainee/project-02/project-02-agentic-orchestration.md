@@ -292,3 +292,17 @@ Use this routing table as the mock backend for the routing step.
 - "ReAct: Synergizing Reasoning and Acting in Language Models" (Yao et al., 2022) — the foundational paper behind most agentic frameworks
 - watsonx.ai documentation: tool use, function calling, structured output, and JSON mode
 - "Evaluating Large Language Models: A Survey" — useful background on classification evaluation metrics (precision, recall, F1)
+
+## Practitioner Resources
+
+- [Building Effective Agents](https://www.anthropic.com/research/building-effective-agents) — Anthropic's foundational framework distinguishing workflows from agents and outlining core design patterns.
+- [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) — the original ICLR 2023 paper defining the reasoning+acting interleaved loop that underlies most agentic AI systems.
+- [Tool Calling — watsonx Developer Hub](https://www.ibm.com/watsonx/developer/capabilities/tool-calling/) — official IBM overview of how watsonx.ai models select and invoke external tools.
+- [Building agent-driven workflows with the chat API — watsonx](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-api-chat-tools.html?context=wx&locale=en) — IBM's reference docs for implementing function/tool calling via the watsonx.ai chat API.
+- [Function Calling with Granite Tutorial](https://www.ibm.com/think/tutorials/granite-function-calling) — hands-on IBM tutorial showing tool-calling mechanics with Granite models on watsonx.ai.
+- [Implement agent guardrails with watsonx Orchestrate plug-ins](https://developer.ibm.com/tutorials/ai-agents-guardrails-watsonx-orchestrate-plugins/) — practical IBM tutorial on pre/post-invoke plug-ins for filtering, redacting, and enforcing policy on agent actions.
+- [Governance and observability — watsonx Orchestrate](https://www.ibm.com/products/watsonx-orchestrate/governance-and-observability) — IBM product docs on audit trails, policy enforcement, and monitoring for deployed agents.
+- [Plug-ins — watsonx Orchestrate ADK](https://developer.watson-orchestrate.ibm.com/plugins/plugins) — developer reference for building custom guardrail/interception logic into Orchestrate agents.
+- [Function calling — OpenAI API docs](https://developers.openai.com/api/docs/guides/function-calling) — the canonical vendor-neutral explainer of the tool/function-calling request-response loop, useful for contrasting with watsonx's implementation.
+- [Human-in-the-loop — LangChain docs](https://docs.langchain.com/oss/python/langchain/human-in-the-loop) — official docs on interrupting agent execution for approval/edit/reject before high-stakes tool calls.
+- [AI Agents vs Workflows: When to Use Each — Redis blog](https://redis.io/blog/agents-vs-workflows/) — practical decision framework for choosing agentic vs. fixed-pipeline architecture based on task predictability and ambiguity.

@@ -249,3 +249,17 @@ The content of these documents can be brief (half a page each) — the important
 - OWASP Top 10 for LLM Applications — the definitive reference for LLM-specific security risks including prompt injection (LLM01) and sensitive information disclosure (LLM02)
 - IBM Research: "Protecting Large Language Models Against Prompt Injection via Foundation Model Security"
 - Kuwait Central Agency for Information Technology (CAIT) data protection guidelines — relevant for understanding PII obligations in a Kuwaiti enterprise context
+
+## Practitioner Resources
+
+- [OWASP Top 10 for LLM Applications 2025](https://genai.owasp.org/llm-top-10/) — canonical ranked list of LLM risks (prompt injection, sensitive info disclosure, excessive agency) to use as the security checklist for the agent's design.
+- [OWASP Top 10 for Large Language Model Applications (Project Page)](https://owasp.org/www-project-top-10-for-large-language-model-applications/) — OWASP Foundation's project overview and community context for the GenAI security initiative.
+- [NIST AI 100-2e2025: Adversarial Machine Learning Taxonomy](https://csrc.nist.gov/pubs/ai/100/2/e2025/final) — authoritative NIST taxonomy of attacks, including direct/indirect prompt injection, and mitigations for rigorous threat modeling.
+- [Prompt injection attacks against GPT-3 (Simon Willison, 2022)](https://simonwillison.net/2022/Sep/12/prompt-injection/) — the original post that coined "prompt injection," explaining the vulnerability by analogy to SQL injection.
+- [Prompt injection: What's the worst that can happen? (Simon Willison, 2023)](https://simonwillison.net/2023/Apr/14/worst-that-can-happen/) — explains why prompt injection becomes dangerous once an LLM agent can take actions (email, search, tool calls) — directly relevant to a tool-using orchestrate agent.
+- [Microsoft Presidio Documentation](https://microsoft.github.io/presidio/) — docs for the open-source PII detection/analyzer and anonymizer toolkit for redacting data before it reaches the model.
+- [Microsoft Presidio (GitHub repo)](https://github.com/microsoft/presidio) — source code, recognizers, and deployment options (Python/Docker/Kubernetes) for the PII redaction pipeline.
+- [RAG & RBAC integration (Elastic Search Labs)](https://www.elastic.co/search-labs/blog/rag-and-rbac-integration) — concrete pattern for enforcing document/field-level RBAC at the retrieval layer so unauthorized chunks never reach the LLM context.
+- [Protect sensitive data in RAG applications with Amazon Bedrock (AWS ML Blog)](https://aws.amazon.com/blogs/machine-learning/protect-sensitive-data-in-rag-applications-with-amazon-bedrock/) — combines PII redaction at ingestion with RBAC-based metadata filtering at retrieval, a useful reference architecture.
+- [Compliance by Design: 18 Tips to Implement Tamper-Proof Audit Logs (Mattermost)](https://mattermost.com/blog/compliance-by-design-18-tips-to-implement-tamper-proof-audit-logs/) — practical checklist for append-only storage, cryptographic hashing, and access restriction in tamper-evident audit logs.
+- [Google Secure AI Framework (SAIF)](https://saif.google/) — vendor-agnostic best-practices framework (risk categories plus controls) for securing AI/agent systems end-to-end.

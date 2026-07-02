@@ -181,3 +181,18 @@ Eighteen working days is not much time for an open-ended engagement. Here is a r
 | 17–18 | Presentation preparation                                                                       |
 
 The biggest mistake trainees make on open-ended projects is spending too long in the build phase and not leaving enough time to reflect, document, and prepare to present. A system you cannot explain is not a finished system.
+
+---
+
+## Practitioner Resources
+
+- [AI Product Discovery Frameworks: How AI Is Changing the Way Teams Build](https://www.productboard.com/blog/ai-product-discovery-frameworks/) — overview of discovery frameworks (JTBD, RICE, opportunity trees) useful for scoping which capstone problem to solve and why.
+- [A Framework For Presenting Complex Machine Learning Concepts for Non-Technical Stakeholders](https://www.ninetwothree.co/resources/a-framework-for-presenting-complex-machine-learning-concepts-for-non-technical-stakeholders) — practical guidance on audience-tailored updates, demo cadence, and avoiding overpromising accuracy when pitching an AI solution.
+- [How to Communicate with Non-Technical Stakeholders](https://qat.com/how-to-communicate-with-non-technical-stakeholders/) — six concrete tips (jargon-free language, business framing, visuals) directly applicable to a client-facing capstone presentation.
+- [Murabaha — Wikipedia](https://en.wikipedia.org/wiki/Murabaha) — solid primer on cost-plus sale financing, its rationale under riba prohibition, and common variations (useful base for Scenario B).
+- [What is Tawarruq (Reverse Murabaha)? Meaning with Examples](https://aims.education/tawarruq-and-enah-in-islamic-finance/) — worked example and Shariah reasoning behind Tawarruq, needed to scope an Islamic banking advisor's compliance boundaries.
+- [The Three Islamic Home Finance Models – Musharaka, Murabaha, Ijara](https://www.guidanceresidential.com/resources/faith-based-financing/the-three-islamic-home-finance-models-musharaka-murabaha-ijara/) — clear side-by-side comparison of Murabaha, Ijara, and Musharaka mechanics and trade-offs.
+- [Financing: Tawarruq (Commodity Murabaha)](https://islamicbankers.center/islamic-banking-islamic-contracts/financing-commodity-murabaha-tawarruq/) — practitioner-level detail on commodity Murabaha structures and operational risks, relevant to product boundaries.
+- [LLM Guardrails: Best Practices for Deploying LLM Apps Securely](https://www.datadoghq.com/blog/llm-guardrails-best-practices/) — concrete input/output guardrail patterns, applicable to the oil & gas safety-critical assistant scenario.
+- [LLM Guardrails: Securing Large Language Models for Real-World Use](https://witness.ai/blog/llm-guardrails/) — broad, vendor-neutral rundown of guardrail types and why they matter for regulated/safety-critical deployments.
+- [Arabic NLP — How To Overcome Challenges, Tutorials In Python & 9 Tools/Resources](https://spotintelligence.com/2023/10/29/arabic-nlp/) — explains dialect variation, morphology, and tooling gaps, key background for the multilingual municipal complaint triage scenario.
