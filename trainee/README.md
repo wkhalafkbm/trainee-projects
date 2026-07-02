@@ -68,7 +68,7 @@ Build an enterprise-grade internal assistant over a company knowledge base, with
 ### Project 5 — Capstone: Client Brief
 **Capstone · ~3.5 weeks · Stack of your choice**
 
-An open-ended project built around a real client scenario chosen from six options (government licensing, Islamic finance, oil & gas field operations, hospital triage, legal contract review, or municipal complaint handling). No prescribed deliverable structure — the trainee defines scope, designs the architecture, builds a working system, and presents it as they would to a real client. Assessed on problem understanding, design decisions, safety and governance, and the ability to defend choices under questioning.
+An open-ended project built around a real client scenario chosen from six options (government licensing, Islamic finance, oil & gas field operations, a multi-brand conglomerate's customer care, an electronics retailer's pre-/post-sale support, or municipal complaint handling). No prescribed deliverable structure — the trainee defines scope, designs the architecture, builds a working system, and presents it as they would to a real client. Assessed on problem understanding, design decisions, safety and governance, and the ability to defend choices under questioning.
 
 ---
 
