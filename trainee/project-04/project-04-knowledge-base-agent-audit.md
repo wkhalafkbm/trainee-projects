@@ -1,6 +1,6 @@
 # Project 4: Internal Knowledge Base Agent with Audit Trail
 
-**Stack:** watsonx.ai + watsonx.orchestrate + watsonx.governance  
+**Stack:** watsonx.ai + watsonx.orchestrate (governance layer built by the trainee)  
 **Duration:** 2 weeks (platform/lab ramp-up and build, split as needed)  
 **Difficulty:** Tier 3 — Advanced
 
@@ -8,7 +8,7 @@
 
 ## Overview
 
-Build an enterprise-grade internal assistant that lets employees search and query the company's internal knowledge base through a conversational interface. Every interaction — the question asked, the documents retrieved, the answer given, and who asked it — is logged to a tamper-evident audit trail. Before any query reaches the model, it is screened for PII and prompt injection attempts. After deployment, watsonx.governance monitors the system for usage patterns and drift.
+Build an enterprise-grade internal assistant that lets employees search and query the company's internal knowledge base through a conversational interface. Every interaction — the question asked, the documents retrieved, the answer given, and who asked it — is logged to a tamper-evident audit trail. Before any query reaches the model, it is screened for PII and prompt injection attempts. After deployment, the trainee's own monitoring check compares usage patterns and flag rates against a baseline to detect drift.
 
 This project is about production readiness. The previous projects asked "does the AI give a good answer?" This one asks "is this system safe to run inside a company?" Those are different questions, and the gap between them is where most real-world AI deployments fail. A knowledge base agent that leaks sensitive data, can be manipulated by a malicious query, or has no record of what it said to whom is not an enterprise system — it is a liability.
 
@@ -25,7 +25,7 @@ A working internal knowledge base agent with:
 3. **PII detection layer** — incoming queries are scanned for personal data before being sent to the model; detected PII is redacted or blocked
 4. **Input sanitization layer** — incoming queries are screened for prompt injection patterns before processing
 5. **Audit trail** — every interaction is written to a structured, append-only log: timestamp, user identifier, raw query (pre-sanitization), sanitized query, documents retrieved, model response, and any flags raised
-6. **watsonx.governance monitoring** — the deployed model is registered and monitored; a usage report is generated at the end of the week
+6. **Governance layer** — a system record (identity, version, owner), version stamps on every audit entry, and a monitoring check that compares aggregate behaviour across two time windows
 7. **Access control stub** — queries are tagged with a user role; certain documents are restricted to certain roles and the agent must respect these boundaries
 
 The knowledge base content can be the mock HR documents from Project 2, supplemented with a set of internal IT and security procedure documents provided in this brief.
@@ -62,12 +62,16 @@ The knowledge base content can be the mock HR documents from Project 2, suppleme
 - Test that the audit log is complete: run 10 queries (including flagged ones) and verify every field is populated correctly
 - Deliverable: a working audit trail with a summary report generated from the log
 
-### Milestone 5 — watsonx.governance integration and final review
-- Register the model in watsonx.governance and populate its factsheet: intended use, document scope, access control design, known limitations, PII handling approach
-- Configure monitoring: track query volume, flag rates (PII and injection), and response latency over time
-- Run a final end-to-end test covering all user roles and all document clearance levels
-- Write a deployment readiness assessment: what would need to be true before this system could be given to real employees? Be specific about what is missing
-- Deliverable: completed factsheet, monitoring configuration, and deployment readiness assessment
+### Milestone 5 — Build the governance layer and final review
+
+The audit log records what happened in each interaction. This milestone adds the layer that makes the system accountable as a whole.
+
+- **System record:** create `system_record.yaml` (or JSON) with: system name, version number, hash of the system prompt, foundation model ID, embedding model ID, the list of documents indexed and their clearance levels, a named owner, and a lifecycle state (`draft` / `validated` / `approved`). Every audit log entry must carry the version number, so any past answer can be traced to the exact prompt, model, and document set in force at the time.
+- **Monitoring check:** extend your Milestone 4 summary function so it can run over a time window and compare two windows. Run your 10 test interactions as the baseline, then run a second batch of at least 10 more (include several flagged ones). Report side by side: query volume, PII flag rate, injection flag rate, average latency, and the most retrieved documents. State the threshold at which a change in flag rate or latency would trigger a human review. This is the distinction the Common Pitfalls section draws: the log is per interaction, monitoring is the aggregate over time.
+- **Final end-to-end test:** cover all user roles and all document clearance levels.
+- **Deployment readiness assessment:** intended use and document scope, access control design, PII handling approach, known limitations and what your injection detection misses, monitoring thresholds, and what would need to be true before this system could be given to real employees. Be specific about what is missing. Copy the system record into the assessment; together they are the system's factsheet.
+
+Deliverable: the system record, a version-stamped audit log, the two-window monitoring comparison, and the deployment readiness assessment.
 
 ---
 
@@ -219,7 +223,8 @@ The content of these documents can be brief (half a page each) — the important
 - [ ] Enforce document access control at the retrieval layer — a General user must never receive content from HR-Only or Management-Only documents
 - [ ] Produce a complete audit log covering all 10 test interactions, with every required field populated
 - [ ] Include a summary report generated from the audit log
-- [ ] Include a completed watsonx.governance factsheet
+- [ ] Include a system record, and an audit log in which every entry carries the system version
+- [ ] Include a two-window monitoring comparison with stated review thresholds
 - [ ] Include a deployment readiness assessment
 
 ---
@@ -245,7 +250,7 @@ The content of these documents can be brief (half a page each) — the important
 
 ## Resources
 
-- watsonx.governance documentation: model registration, factsheets, and drift monitoring
+- IBM watsonx.governance documentation (model registration, factsheets, drift monitoring) — reference reading for what a mature monitoring setup tracks
 - OWASP Top 10 for LLM Applications — the definitive reference for LLM-specific security risks including prompt injection (LLM01) and sensitive information disclosure (LLM02)
 - IBM Research: "Protecting Large Language Models Against Prompt Injection via Foundation Model Security"
 - Kuwait Central Agency for Information Technology (CAIT) data protection guidelines — relevant for understanding PII obligations in a Kuwaiti enterprise context

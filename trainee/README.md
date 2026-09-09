@@ -56,19 +56,19 @@ Build an assistant that answers questions grounded in a set of documents, and ca
 Build two orchestrated systems: an HR onboarding **agent** that holds a multi-turn conversation, answers policy questions, submits IT requests, and books orientation sessions — deciding when to act, ask, or escalate — and a customer support triage **pipeline** that classifies, routes, and drafts a response for incoming tickets in a fixed sequence of steps. Building both back to back teaches the most important architectural judgement call in this space: when a problem needs an open-ended reasoning loop versus a fixed sequence of steps. The two weeks cover both getting hands-on with watsonx.orchestrate and building both systems — split however suits you.
 
 ### Project 3 — Loan Screening Tool with Governance
-**Tier 3 · 2 weeks · watsonx.ai + watsonx.governance**
+**Tier 3 · 2 weeks · watsonx.ai + a trainee-built governance layer**
 
-Build an AI-assisted loan application screener that recommends approve, refer, or decline — then wrap it in a full governance layer. Introduces responsible AI in a regulated domain: explainability, bias detection across protected attributes, decision logging for audit, and producing a model factsheet via watsonx.governance. The first project where accuracy alone is not enough. The two weeks cover both getting hands-on with watsonx.governance and building the screening tool — split between the two however suits you.
+Build an AI-assisted loan application screener that recommends approve, refer, or decline — then wrap it in a full governance layer. Introduces responsible AI in a regulated domain: explainability, bias detection across protected attributes, decision logging for audit, and a governance report that stands in for a model factsheet. The governance layer is built by hand rather than through a platform, so the trainee learns what such platforms automate. The first project where accuracy alone is not enough.
 
 ### Project 4 — Internal Knowledge Base Agent with Audit Trail
-**Tier 3 · 2 weeks · watsonx.ai + watsonx.orchestrate + watsonx.governance**
+**Tier 3 · 2 weeks · watsonx.ai + watsonx.orchestrate + a trainee-built governance layer**
 
 Build an enterprise-grade internal assistant over a company knowledge base, with role-based document access, PII detection, prompt injection screening, and a tamper-evident audit log of every interaction. Focuses on production readiness: the security and compliance engineering that surrounds the model, not just the model itself. The two weeks cover both platform ramp-up and the build — split between the two however suits you.
 
 ### Project 5 — Capstone: Client Brief
 **Capstone · ~3.5 weeks · Stack of your choice**
 
-An open-ended project built around a real client scenario chosen from six options (government licensing, Islamic finance, oil & gas field operations, a multi-brand conglomerate's customer care, an electronics retailer's pre-/post-sale support, or municipal complaint handling). No prescribed deliverable structure — the trainee defines scope, designs the architecture, builds a working system, and presents it as they would to a real client. Assessed on problem understanding, design decisions, safety and governance, and the ability to defend choices under questioning.
+An open-ended project in which the trainee identifies their own client problem in one of Kuwait's four key sectors (government, banking, cross-sector private business, oil), writes the client brief, and builds their own mock data. Six worked example scenarios and matching mock documents are provided for reference only — they show what a good problem looks like, not a list to choose from. No prescribed deliverable structure — the trainee defines the problem and scope, designs the architecture, builds a working system, and presents it as they would to a real client. Assessed on problem understanding, design decisions, safety and governance, and the ability to defend choices under questioning.
 
 ---
 

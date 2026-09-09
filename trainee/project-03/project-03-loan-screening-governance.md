@@ -1,6 +1,6 @@
 # Project 3: Loan/Credit Application Screening Tool (with Governance)
 
-**Stack:** watsonx.ai + watsonx.governance  
+**Stack:** watsonx.ai (governance layer built by the trainee)  
 **Duration:** 2 weeks (platform/lab ramp-up and build, split as needed)  
 **Difficulty:** Tier 3 — Advanced
 
@@ -12,7 +12,7 @@ Build an AI-assisted loan application screening tool that evaluates credit appli
 
 This is the first project in the programme where the *quality of the AI output alone is not enough*. A loan screening tool that is accurate but biased, or accurate but unexplainable, is not deployable — not legally, not ethically, and not practically. This project forces the trainee to confront a question that every AI developer eventually faces: what does it mean to build AI responsibly, and how do you prove it?
 
-The tool uses a foundation model on watsonx.ai for the screening logic. watsonx.governance is used to monitor the model, track decisions, detect fairness issues, and produce a factsheet. By the end of the week, the trainee will have built not just an AI application but a governed one.
+The tool uses a foundation model on watsonx.ai for the screening logic. The governance layer is not a product — it is a set of artefacts and checks the trainee builds around the model: a versioned record of what is deployed, a log that traces every decision to that version, a measured fairness check, a defined human override, and a repeat of those checks to see whether behaviour has shifted. By the end of the project, the trainee will have built not just an AI application but a governed one, and will understand what a governance platform automates because they have done it by hand.
 
 ---
 
@@ -25,7 +25,7 @@ A working loan screening pipeline with:
 3. **Explainability layer** — for every decision, produce a human-readable explanation of the key factors that influenced the outcome
 4. **Bias detection** — run the model against a test dataset and analyse whether outcomes differ systematically across protected attributes (age group, gender, nationality)
 5. **Decision log** — persist every application, recommendation, and explanation to a structured log for audit purposes
-6. **watsonx.governance integration** — register the model, track it via a factsheet, and produce a governance report
+6. **Governance layer** — a model record (identity, version, owner), version stamps on every logged decision, a repeatable fairness check with a stated threshold, and a governance report that a regulator could audit
 7. **Human review path** — all Decline and low-confidence Approve decisions must be flagged for human review, not acted on autonomously
 
 ---
@@ -35,7 +35,7 @@ A working loan screening pipeline with:
 ### Milestone 1 — Understand responsible AI in financial services
 - Read about why AI in lending is a regulated domain: what adverse action notices are, what the Central Bank of Kuwait's (CBK) consumer credit regulations require, and why explainability is not optional
 - Read about the types of bias that can appear in AI systems: historical bias (the training data reflects past discrimination), representation bias (some groups are underrepresented), and measurement bias (features used as proxies for protected attributes)
-- Familiarise yourself with watsonx.governance: what it tracks, what a factsheet is, and what a model card should contain
+- Read about what AI governance platforms track (IBM's AI FactSheets 360 and the "Model Cards for Model Reporting" paper are the reference points) so you know what a model card should contain and why. You will build a minimal version of this yourself in Milestone 5
 - Deliverable: a written summary (1 page) of the three types of bias and one example of each from the financial services domain
 
 ### Milestone 2 — Build the screening model
@@ -59,12 +59,18 @@ A working loan screening pipeline with:
 - Attempt at least one mitigation and re-run to see whether it improves the disparity
 - Deliverable: a bias analysis report (can be a markdown file or spreadsheet) containing outcome distributions by segment, a finding, and a documented mitigation attempt
 
-### Milestone 5 — watsonx.governance integration and final report
-- Register the model in watsonx.governance
-- Populate the model factsheet: intended use, training data description (or in this case, prompt design description), known limitations, fairness findings, and recommended human oversight steps
-- Configure basic monitoring: log inputs and outputs so drift could be detected over time
-- Write the governance report (see Acceptance Criteria for required contents)
-- Deliverable: a completed factsheet and a governance report
+### Milestone 5 — Build the governance layer and write the final report
+
+A governed system can answer six questions. By the end of this milestone yours must answer all of them, with evidence.
+
+1. **What is this system and who owns it?** Create a model record (`model_record.yaml` or JSON) with: a system name, a version number, a hash or copy of the exact prompt in use, the foundation model ID, a named owner, a lifecycle state (`draft` / `validated` / `approved`), and the date of the last fairness check. Every entry in the decision log must carry the version number and prompt hash that produced it, so any past decision can be traced to the exact configuration in force at the time.
+2. **What is it for, and what is it not for?** Intended use, out-of-scope use, and known limitations. This becomes the first two sections of the governance report. "None known" is not an acceptable limitations entry.
+3. **Can every decision be traced?** Your decision log from Milestone 3 already answers this. Confirm that a reviewer can pick any application ID and recover the input, recommendation, confidence, explanation, and version that produced it.
+4. **Is it fair, and how do you know?** Turn the Milestone 4 analysis into a script that reads the decision log and prints approval, referral, and decline rates by gender, age group, and nationality, and flags any pair of groups whose approval rates differ by more than 10 percentage points. The threshold must be stated in the script, not applied by eye.
+5. **Who can override it?** Your human review path from Milestone 2. Document the trigger rules (all Declines, Approves below 0.75 confidence) and what the reviewer receives.
+6. **Is it still behaving the way it did when you checked?** Re-run the full sample set after making one deliberate change (a reworded prompt, a different model, or a new batch of 10 applications) and run the fairness script again. Compare the two runs side by side: did the outcome distribution, the confidence distribution, or any group disparity move? Record the comparison in the report. This is monitoring in its simplest form: the same checks, run again, compared to a baseline. Update the model record's version number and last-checked date when you do this.
+
+Deliverables: the model record, a decision log with version stamps, the fairness script and its output for both runs, and the governance report.
 
 ---
 
@@ -119,7 +125,7 @@ A factsheet is a structured document that captures everything a decision-maker n
 - Recommended oversight and escalation procedures
 - Who is accountable for the model's outputs
 
-watsonx.governance provides tooling to create and maintain factsheets. The trainee should treat it not as a compliance checkbox but as the document that would need to exist if a regulator asked to audit the system.
+Governance platforms automate the creation and upkeep of factsheets. In this project the governance report *is* the factsheet. The trainee should treat it not as a compliance checkbox but as the document that would need to exist if a regulator asked to audit the system.
 
 ### The Human Review Path is Not Optional
 
@@ -139,12 +145,14 @@ The trainee should design the system so that:
 - [ ] Flag all Decline decisions and any Approve decisions below 0.75 confidence for human review — these must not be treated as final
 - [ ] Include a structured decision log covering all applications processed during testing
 - [ ] Include a bias analysis report covering outcome distributions by gender, age group, and nationality, at least one finding, and a documented mitigation attempt
-- [ ] Include a completed watsonx.governance factsheet for the model
+- [ ] Include a model record, and a decision log in which every entry carries the version and prompt hash that produced it
+- [ ] Include a fairness script with a stated threshold, and its output for two separate runs
 - [ ] Include a governance report (see structure below)
 
 ### Governance Report — Required Contents
 The governance report is the primary proof-of-learning artefact for this project. It must cover:
 
+0. **Model record:** system name, version, prompt hash, model ID, owner, lifecycle state (copy the record into the report)
 1. **Model description:** what the model does, what inputs it takes, what outputs it produces
 2. **Intended use and out-of-scope use:** where this model should and should not be used
 3. **Fairness analysis:** outcome distributions by protected attribute, methodology used, findings
@@ -153,6 +161,7 @@ The governance report is the primary proof-of-learning artefact for this project
 6. **Human oversight design:** which decisions require human review and why
 7. **Known limitations:** what the model cannot reliably do
 8. **Recommendations:** what would need to be true before this system could be deployed in a real lending context
+9. **Monitoring result:** the two-run comparison from Milestone 5 — what changed, what did not, and what threshold you would set to trigger a review in production
 
 ---
 
@@ -396,13 +405,13 @@ To test question 2, find two applications with near-identical financial profiles
 - Implement a **counterfactual explanation**: for every Decline, generate a statement of the form "If your credit score were X instead of Y, this application would have been referred rather than declined" — this is a form of explanation that is directly actionable for the applicant
 - Add an **adverse action notice generator**: produce a formal letter for Decline decisions that meets the plain-language explanation requirements of the Central Bank of Kuwait's consumer credit guidelines
 - Implement **model drift simulation**: process the same application twice with slightly different prompt wording and compare outcomes — document how sensitive the model is to prompt changes and what this means for production stability
-- Explore **watsonx.governance's automated bias detection**: move beyond manual spreadsheet analysis and use the platform's built-in fairness metrics tooling
+- If you have access to **watsonx.governance**, register the model and compare its factsheet template and fairness monitor to what you built. Write down what the platform does that your version does not, and whether a regulator would care about the difference
 
 ---
 
 ## Resources
 
-- watsonx.governance documentation: model factsheets, monitoring configuration, fairness metrics
+- IBM watsonx.governance documentation (model factsheets, fairness monitors) — read as a reference for what a mature governance layer contains, even if you cannot use the platform
 - IBM AI Fairness 360 (AIF360) — open-source toolkit for bias detection and mitigation, useful for understanding the underlying metrics
 - "Fairness and Machine Learning" (Barocas, Hardt, Narayanan) — free online textbook, Chapters 1–3 are relevant to this project
 - "Model Cards for Model Reporting" (Mitchell et al., 2019) — the paper that established model cards as a governance practice
